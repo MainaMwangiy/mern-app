@@ -11,7 +11,8 @@ module.exports = function(app){
     );
     next()
    })
-   app.post("/api/v1/create-new-user", [
+   app.post("/api/v1/create-new-user",
+   [
     checkDuplicates, 
     checkIfRolesExist
    ], 

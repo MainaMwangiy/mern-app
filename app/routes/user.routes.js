@@ -10,7 +10,7 @@ module.exports = function(app){
      next()
     })
     app.get("/api/test/all", allAccess)
-    app.get("/api/test/user", userBoard)
+    app.get("/api/test/user",[VerifyToken], userBoard)
     app.get("/api/test/mod", [VerifyToken, isModerator], moderatorBoard)
     app.get("/api/test/admin", [VerifyToken, isAdmin])
  }
