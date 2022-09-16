@@ -7,7 +7,9 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 const corOptions = {
-  origin: "https://localhost:5000",
+  origin: "http://localhost:3000",
+  // credentials: true, //access-control-allow-credentials:true
+  // optionSuccessStatus: 200,
 };
 
 app.use(cors(corOptions));
@@ -29,12 +31,10 @@ db.mongoose
     process.exit();
   });
 
-
-  
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
-app.get("/", (req,res) => {
+app.get("/", (req, res) => {
   res.json({
     success: true,
     message: "Welcome to fastlinker application",
